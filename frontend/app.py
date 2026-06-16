@@ -5,7 +5,7 @@ import base64
 from PIL import Image
 import io
 
-st.set_page_config(page_title="VisualDebate", page_icon="⚖️", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="FactStream", page_icon="⚖️", layout="wide", initial_sidebar_state="collapsed")
 
 GATEWAY_URL = os.getenv("GATEWAY_URL", "http://localhost:8000")
 
@@ -188,7 +188,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Header
-st.markdown('<div class="premium-header">VisualDebate</div>', unsafe_allow_html=True)
+st.markdown('<div class="premium-header">FactStream</div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">AI-Powered Multimodal Fact-Checking & Argument Analysis</div>', unsafe_allow_html=True)
 
 st.write("---")
