@@ -57,8 +57,6 @@ graph TD;
 5. Map the IP address: Add `$(minikube ip) visualdebate.local` to your `/etc/hosts` file.
 6. Access the application at `http://visualdebate.local`
 
-## Demo Video
-*(Insert YouTube Link Here)*
 
 ## License
 MIT
