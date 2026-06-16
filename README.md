@@ -1,3 +1,7 @@
+
+## 🌍 Live Demo
+**Public URL:** [https://huggingface.co/spaces/Addu28/FactStream](https://huggingface.co/spaces/Addu28/FactStream)
+
 # FactStream
 
 FactStream is a real-time multimodal argument analyzer designed to process video or live webcam feeds along with speech transcripts. It detects logical fallacies, analyzes speaker emotion and body language, fact-checks claims using a RAG pipeline, generates counter-arguments, and evaluates overall credibility.
