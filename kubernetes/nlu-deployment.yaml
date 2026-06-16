@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nlu-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nlu
+  template:
+    metadata:
+      labels:
+        app: nlu
+    spec:
+      containers:
+      - name: nlu
+        image: visualdebate-nlu:latest
+        imagePullPolicy: Never # For minikube local
+        ports:
+        - containerPort: 8001
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nlu-service
+spec:
+  selector:
+    app: nlu
+  ports:
+    - protocol: TCP
+      port: 8001
+      targetPort: 8001

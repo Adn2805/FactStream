@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  gateway:
+    build: ./services/gateway
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    # depends_on:
+    #   nlu_service:
+    #     condition: service_started
+    #   factcheck_service:
+    #     condition: service_started
+    #   genai_service:
+    #     condition: service_started
+    #   scoring_service:
+    #     condition: service_started
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  nlu_service:
+    build: ./services/nlu_service
+    expose:
+      - "8001"
+    volumes:
+      - ./models:/app/models
+    restart: unless-stopped
+
+  vision_service:
+    build: ./services/vision_service
+    expose:
+      - "8002"
+    restart: unless-stopped
+
+  factcheck_service:
+    build: ./services/factcheck_service
+    expose:
+      - "8003"
+    restart: unless-stopped
+
+  genai_service:
+    build: ./services/genai_service
+    expose:
+      - "8004"
+    volumes:
+      - ./services/genai_service/models:/app/models
+    restart: unless-stopped
+
+  scoring_service:
+    build: ./services/scoring_service
+    expose:
+      - "8005"
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    depends_on:
+      gateway:
+        condition: service_started
+    restart: unless-stopped

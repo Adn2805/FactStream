@@ -1,0 +1,10 @@
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.2
+sentence-transformers==2.5.1
+faiss-cpu==1.7.4
+duckduckgo-search==4.1.0
+transformers==4.35.2
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.1.1
+numpy==1.26.2
