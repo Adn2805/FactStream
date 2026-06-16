@@ -16,7 +16,8 @@ COPY services/genai_service/requirements.txt services/genai_service/
 COPY services/scoring_service/requirements.txt services/scoring_service/
 
 # Install global requirements
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel && \
+    pip install --no-cache-dir -r requirements.txt
 
 # Install specific service requirements
 RUN pip install --no-cache-dir -r frontend/requirements.txt && \
