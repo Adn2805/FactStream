@@ -1,3 +1,11 @@
+---
+title: FactStream
+emoji: ⚖️
+colorFrom: green
+colorTo: blue
+sdk: docker
+app_port: 8501
+---
 
 ## 🌍 Live Demo
 **Public URL:** [https://huggingface.co/spaces/Addu28/FactStream](https://huggingface.co/spaces/Addu28/FactStream)
